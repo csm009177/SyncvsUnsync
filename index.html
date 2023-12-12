@@ -8,21 +8,18 @@
 <body>
   <script>
 
-function increaseAndPrint(n) {
-  return new Promise((resolve, reject)=>{
-    setTimeout(() => {
-      const increased = n + 1;
-      console.log(increased);
-      resolve(increased);
-    }, 100)
-  })
+function getData() {
+  return new Promise((resolve, reject) =>{
+    var data = 100;
+    resolve(data);
+  });
 }
 
-increaseAndPrint(0)
-  .then((n) => increaseAndPrint(n))
-  .then((n) => increaseAndPrint(n))
-  .then((n) => increaseAndPrint(n))
-  .then((n) => increaseAndPrint(n)); // 체이닝 기법
+// resolve()의 결과 값 data를 resolvedData로 받음
+getData().then(function(resolvedData) {
+  console.log(resolvedData); // 100
+});
+
 
   </script>
 </body>
