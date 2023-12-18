@@ -1,3 +1,4 @@
+// 기본적인 try-catch-finally:
 // try, catch, finally는 자바스크립트에서 예외 처리를 위한 키워드들입니다. 
 try { // try 블록은 예외가 발생할 수 있는 코드를 감싸고
   console.log("Try 블록 시작");
