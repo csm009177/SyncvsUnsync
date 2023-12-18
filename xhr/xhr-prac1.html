@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // npm install node-fetch
+        // XMLHttpRequest는 브라우저에서만 지원되는 객체이며 
+        // Node.js 환경에서는 기본적으로 제공되지 않습니다.
+        // 예제 1: 기본적인 GET 요청
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.example.com/data', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send();
+    </script>
+</body>
+</html>

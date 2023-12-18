@@ -1,13 +1,10 @@
-// 비동기 코드에서의 finally:
-async function fetchData() {
-  try {
-    const response = await fetch("https://api.example.com/data");
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error("데이터 불러오기 에러: " + error.message);
-  } finally {
-    console.log("데이터 불러오기 시도 완료");
-  }
-}
-fetchData();
+// npm install node-fetch
+// 예제 1: 기본적인 GET 요청
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.example.com/data', true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+    }
+};
+xhr.send();
