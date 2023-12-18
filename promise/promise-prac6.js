@@ -1,6 +1,6 @@
 const changingStatePromise = new Promise((resolve, reject) => {
   console.log("Promise가 생성되었습니다.");
-  const condition = false;
+  const condition = true;
 
   setTimeout(() => {
     if (condition) {
