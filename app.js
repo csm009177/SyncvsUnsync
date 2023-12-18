@@ -1,13 +1,10 @@
-const promiseWithError = new Promise((resolve, reject) => {
-  // 비동기 작업 수행
-  const hasError = true;
-  if (hasError) {
-    reject("작업 실패"); // reject는 loging 기능이 있음
-  } else {
-    resolve("작업 성공"); // resolve는 loging 기능이 없음
-  }
+//Promise 상태 변화:
+const changingStatePromise = new Promise((resolve) => {
+  console.log("Promise가 생성되었습니다.");
+  resolve("성공적으로 처리됨");
+  console.log("이 부분은 실행되지 않습니다.");
 });
 
-promiseWithError.catch((error) => {
-  console.error(error);
+changingStatePromise.then((result) => {
+  console.log(result);
 });
