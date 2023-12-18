@@ -11,6 +11,5 @@ function divide(a, b) {
     console.log("나눗셈 시도");
   }
 }
-
 console.log(divide(10, 2));  // 정상 실행
 console.log(divide(10, 0));  // 에러 발생
