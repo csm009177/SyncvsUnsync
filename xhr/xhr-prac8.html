@@ -6,25 +6,19 @@
   <title>Document</title>
 </head>
 <body>
-  <script> // 예제 9: 다중 요청 처리
-function makeRequest(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            callback(xhr.responseText);
-        }
-    };
-    xhr.send();
-}
+  <script> // 예제 8: FormData 사용
+var formData = new FormData();
+formData.append('username', 'john_doe');
+formData.append('email', 'john@example.com');
 
-makeRequest('https://api.example.com/data1', function (data) {
-    console.log('Data 1: ' + data);
-});
-
-makeRequest('https://api.example.com/data2', function (data) {
-    console.log('Data 2: ' + data);
-});
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://api.example.com/register', true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+    }
+};
+xhr.send(formData);
   </script>
 </body>
 </html>
