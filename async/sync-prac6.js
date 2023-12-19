@@ -1,4 +1,4 @@
-//Step 6: 병렬 비동기 작업 처리
+// Step 6: 병렬 비동기 작업 처리
 async function parallelAsyncTasks() {
   console.log("Step 1: Start");
 
