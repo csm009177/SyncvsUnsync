@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+</head>
+
+<body>
+
+  <h1>Product List with xhr</h1>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="productList">
+      <!-- Data will be populated here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Creating XHR object
+    const xhr = new XMLHttpRequest();
+
+    // Setting up the request
+    xhr.open('GET', 'http://localhost:3218/mariaDB', true);
+
+    // Setting the onload callback function
+    xhr.onload = function () {
+      if (this.status === 200) {
+        const productList = document.getElementById('productList');
+        const data = JSON.parse(this.responseText);
+
+        // Looping through the data and populating the table
+        data.forEach(product => {
+          const row = `
+          <tr>
+            <td>${product.number}</td>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+          </tr>
+        `;
+          productList.innerHTML += row;
+        });
+      } else {
+        console.error('Failed to fetch data');
+      }
+    };
+
+    // Setting the onerror callback function
+    xhr.onerror = function () {
+      console.error('Error occurred while fetching data.');
+    };
+
+    // Sending the request
+    xhr.send();
+  </script>
+
+</body>
+</html>
