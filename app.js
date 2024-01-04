@@ -19,7 +19,7 @@ const serv = http.createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.end(data);
     });
-  } else if (req.method === "POST" && req.url === "/mariaDB") {
+  } else if (req.method === "GET" && req.url === "/mariaDB") {
     // 'product' 테이블에서 모든 상품 조회 SQL 쿼리
     const query = "SELECT * FROM product";
 
