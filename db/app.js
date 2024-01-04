@@ -3,7 +3,8 @@ import http from "http";    // HTTP 모듈
 import fs from "fs";        // 파일 시스템 모듈
 import mysql from "mysql";  // MySQL 데이터베이스 모듈
 const port = 3218;
-const htmlPath = "./index.html";
+const fetchHtmlPath = "./index.html";
+const xhrHtmlPath = "./xhr.html";
 
 // MySQL 데이터베이스 연결을 설정합니다.
 const connection = mysql.createConnection({
@@ -18,7 +19,7 @@ const serv = http.createServer((req, res) => {
   // 요청이 GET 메서드이고 URL이 '/'인 경우
   if (req.method === "GET" && req.url === "/") {
     // index.html 파일을 읽어 응답으로 보냅니다.
-    fs.readFile(htmlPath, "utf8", (err, data) => {
+    fs.readFile(xhrHtmlPath, "utf8", (err, data) => {
       // 응답 헤더 설정 및 파일 내용 전송
       res.writeHead(200, { "Content-Type": "text/html" });
       res.end(data);
